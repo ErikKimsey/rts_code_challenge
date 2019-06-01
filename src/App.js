@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { addQuery } from './actions/actions';
-import { Provider, connect } from 'react-redux';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import './App.scss';
 
@@ -29,9 +29,8 @@ class App extends Component {
 		axios
 			.get(HN_URL + params)
 			.then((res) => {
-				console.log(res.data.hits);
 				this.setState({ result: res.data.hits });
-				this.props.dispatch(addQuery(params));
+				addQuery(params);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -45,31 +44,36 @@ class App extends Component {
 	};
 
 	handleChange = (e) => {
-		console.log(e.target.value);
 		this.setState({ query: e.target.value });
 	};
 
 	render() {
 		return (
-				<div className="App-header">
-					<div className="search-container">
-						<form onSubmit={this.handleSubmit}>
-							<label>
-								<input
-									type="text"
-									ref={this.input}
-									value={this.state.value}
-									name="input"
-									onChange={this.handleChange}
-								/>
-							</label>
-							<input type="submit" value="Submit" />
-						</form>
-					</div>
-					<ItemList items={this.state.result} />
+			<div className="App-header">
+				<div className="search-container">
+					<form onSubmit={this.handleSubmit}>
+						<label>
+							<input
+								type="text"
+								ref={this.input}
+								value={this.state.value}
+								name="input"
+								onChange={this.handleChange}
+							/>
+						</label>
+						<input type="submit" value="Submit" />
+					</form>
 				</div>
+				<ItemList items={this.state.result} />
+			</div>
 		);
 	}
 }
 
-export default connect(null, { addQuery })(App);
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addQuery: (text) => dispatch(addQuery(text))
+	};
+};
+
+export default connect(mapDispatchToProps, { addQuery })(App);
