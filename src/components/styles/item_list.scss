@@ -4,10 +4,12 @@ $linkColor: #aaaaaa;
   display: flex;
   flex-flow: column;
   justify-items: center;
+  width: 600px;
   .item {
     padding: 10px;
     font-size: 0.7em;
     a{
+      width: 600px;
       text-decoration: none;
       color:$linkColor;
       &:hover {
