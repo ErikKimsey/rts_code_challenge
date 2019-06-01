@@ -1,16 +1,7 @@
-import { ADD_QUERY } from '../actions/actionTypes';
+import { combineReducers } from 'redux';
+import queries from './queries';
+console.log(queries);
 
-const INITIAL_STATE = [];
-
-function rootReducer(state = INITIAL_STATE, action) {
-	switch (action.type) {
-		case ADD_QUERY:
-			console.log(action.text);
-
-			return [ ...state, { id: action.id, text: action.text } ];
-		default:
-			return state;
-	}
-}
-
-export default rootReducer;
+export default combineReducers({
+	queries
+});

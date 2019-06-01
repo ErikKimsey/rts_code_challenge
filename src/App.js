@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { addQuery } from './actions/actions';
+import { addQuery, fetchQueries } from './actions/actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import './App.scss';
@@ -22,6 +22,10 @@ class App extends Component {
 		this.callAPI('javascript&tags=story');
 	}
 
+	fetchQueries = (state) => {
+		console.log(state);
+	};
+
 	callAPI = (params) => {
 		if (!params) {
 			params = 'javascript&tags=story';
@@ -31,6 +35,7 @@ class App extends Component {
 			.then((res) => {
 				this.setState({ result: res.data.hits });
 				addQuery(params);
+				fetchQueries();
 			})
 			.catch((err) => {
 				console.log(err);
@@ -70,10 +75,17 @@ class App extends Component {
 	}
 }
 
+const mapStateToProps = (state) => {
+	return {
+		queries: fetchQueries(state.queries)
+	};
+};
+
 const mapDispatchToProps = (dispatch) => {
 	return {
 		addQuery: (text) => dispatch(addQuery(text))
 	};
 };
 
-export default connect(mapDispatchToProps, { addQuery })(App);
+// export default connect(mapStateToProps, mapDispatchToProps, { addQuery, fetchQueries })(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
