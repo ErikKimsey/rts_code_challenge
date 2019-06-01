@@ -6,7 +6,9 @@ export default function Item(props) {
 	return (
 		<div className="item">
 			<div>{item.title}</div>
-			<a href={item.url}>{item.url}</a>
+			<a href={item.url} target="_blank">
+				{item.url}
+			</a>
 		</div>
 	);
 }
