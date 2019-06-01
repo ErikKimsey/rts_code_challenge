@@ -4,7 +4,8 @@ import './App.scss';
 
 import ItemList from './components/ItemList';
 
-const HN_URL = 'https://hacker-news.firebaseio.com/v0/';
+const HN_URL = 'http://hn.algolia.com/api/v1/search?query=';
+// const HN_URL = 'https://hacker-news.firebaseio.com/v0/';
 
 export default class App extends Component {
 	constructor(props) {
@@ -17,15 +18,23 @@ export default class App extends Component {
 	}
 
 	componentDidMount() {
+		this.callAPI('javascript&tags=story');
+	}
+
+	callAPI = (params) => {
+		// if (params === '') {
+		// 	params = 'javascript&tags=story';
+		// }
 		axios
-			.get(HN_URL + 'item/8863.json?print=pretty')
+			.get(HN_URL + params)
 			.then((res) => {
-				console.log(res.data);
+				console.log(res.data.hits);
+				this.setState({ result: res.data.hits });
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-	}
+	};
 
 	handleSubmit = (e) => {
 		e.preventDefault();
@@ -40,7 +49,6 @@ export default class App extends Component {
 	render() {
 		return (
 			<div className="App-header">
-				<ItemList />
 				<div className="search-container">
 					<form onSubmit={this.handleSubmit}>
 						<label>
@@ -56,6 +64,7 @@ export default class App extends Component {
 						<input type="submit" value="Submit" />
 					</form>
 				</div>
+				<ItemList items={this.state.result} />
 			</div>
 		);
 	}
