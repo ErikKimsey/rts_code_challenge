@@ -17,10 +17,22 @@
     form {
       display: flex;
       flex-flow: column;
+      justify-items: center;
+      color: #fff ;
       input {
+        color: #fff ;
         height: 40px; 
         width: 200px;
+        font-size: 1em;
+        &[name="input"]{
+          // color: #fff ;
+          background-color: #282c34;
+        }
+        &[type="submit"]{
+          background-color: #282c34;
+        }
       }
+
     }
   }
 }

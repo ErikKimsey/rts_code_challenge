@@ -56,7 +56,7 @@ export default class App extends Component {
 								type="text"
 								ref={this.input}
 								value={this.state.value}
-								name=""
+								name="input"
 								onChange={this.handleChange}
 							/>
 						</label>
