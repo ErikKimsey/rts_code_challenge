@@ -38,6 +38,7 @@ export default class App extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
+		this.callAPI(this.state.query);
 		e.target.reset();
 	};
 
