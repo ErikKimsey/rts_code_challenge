@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { addQuery } from './actions/actions';
+import { Provider, connect } from 'react-redux';
 import axios from 'axios';
 import './App.scss';
 
@@ -6,7 +8,7 @@ import ItemList from './components/ItemList';
 
 const HN_URL = 'http://hn.algolia.com/api/v1/search?query=';
 
-export default class App extends Component {
+class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -29,6 +31,7 @@ export default class App extends Component {
 			.then((res) => {
 				console.log(res.data.hits);
 				this.setState({ result: res.data.hits });
+				this.props.dispatch(addQuery(params));
 			})
 			.catch((err) => {
 				console.log(err);
@@ -48,23 +51,25 @@ export default class App extends Component {
 
 	render() {
 		return (
-			<div className="App-header">
-				<div className="search-container">
-					<form onSubmit={this.handleSubmit}>
-						<label>
-							<input
-								type="text"
-								ref={this.input}
-								value={this.state.value}
-								name="input"
-								onChange={this.handleChange}
-							/>
-						</label>
-						<input type="submit" value="Submit" />
-					</form>
+				<div className="App-header">
+					<div className="search-container">
+						<form onSubmit={this.handleSubmit}>
+							<label>
+								<input
+									type="text"
+									ref={this.input}
+									value={this.state.value}
+									name="input"
+									onChange={this.handleChange}
+								/>
+							</label>
+							<input type="submit" value="Submit" />
+						</form>
+					</div>
+					<ItemList items={this.state.result} />
 				</div>
-				<ItemList items={this.state.result} />
-			</div>
 		);
 	}
 }
+
+export default connect(null, { addQuery })(App);
