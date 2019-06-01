@@ -22,9 +22,9 @@ export default class App extends Component {
 	}
 
 	callAPI = (params) => {
-		// if (params === '') {
-		// 	params = 'javascript&tags=story';
-		// }
+		if (!params) {
+			params = 'javascript&tags=story';
+		}
 		axios
 			.get(HN_URL + params)
 			.then((res) => {
@@ -52,7 +52,6 @@ export default class App extends Component {
 				<div className="search-container">
 					<form onSubmit={this.handleSubmit}>
 						<label>
-							Name:
 							<input
 								type="text"
 								ref={this.input}

@@ -11,4 +11,16 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+
+  .search-container {
+    margin: 50px auto;
+    form {
+      display: flex;
+      flex-flow: column;
+      input {
+        height: 40px; 
+        width: 200px;
+      }
+    }
+  }
 }
