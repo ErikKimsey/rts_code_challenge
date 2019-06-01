@@ -1,9 +1,11 @@
+$backgroundColor: #282c34;
+
 .App {
   text-align: center;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color:$backgroundColor;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,10 +28,10 @@
         font-size: 1em;
         &[name="input"]{
           // color: #fff ;
-          background-color: #282c34;
+          background-color: $backgroundColor;
         }
         &[type="submit"]{
-          background-color: #282c34;
+          background-color: $backgroundColor;
         }
       }
 
