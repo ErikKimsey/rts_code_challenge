@@ -27,11 +27,13 @@ $backgroundColor: #282c34;
         width: 200px;
         font-size: 1em;
         &[name="input"]{
-          // color: #fff ;
-          background-color: $backgroundColor;
+          background-color: #000000;
         }
         &[type="submit"]{
           background-color: $backgroundColor;
+          &:hover {
+            background-color: darken($color: $backgroundColor, $amount: 5%);
+          }
         }
       }
 

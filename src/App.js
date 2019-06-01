@@ -5,7 +5,6 @@ import './App.scss';
 import ItemList from './components/ItemList';
 
 const HN_URL = 'http://hn.algolia.com/api/v1/search?query=';
-// const HN_URL = 'https://hacker-news.firebaseio.com/v0/';
 
 export default class App extends Component {
 	constructor(props) {

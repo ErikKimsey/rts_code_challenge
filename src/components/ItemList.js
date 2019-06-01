@@ -1,6 +1,8 @@
 import React from 'react';
 import './styles/item_list.scss';
 
+import Item from './Item';
+
 export default function ItemList(props) {
 	console.log(props.items);
 	let items = props.items;
@@ -8,8 +10,10 @@ export default function ItemList(props) {
 		<div className="item-list-container">
 			{items &&
 				items.map((e) => {
-					console.log(e);
-					return <div className="item">{e.title}</div>;
+					return <Item data={e} />;
+					{
+						/* return <div className="item">{e.title}</div>; */
+					}
 				})}
 		</div>
 	);
