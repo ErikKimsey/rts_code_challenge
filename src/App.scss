@@ -13,6 +13,13 @@ $backgroundColor: #282c34;
   font-size: calc(10px + 2vmin);
   color: white;
 
+  .query-results {
+    position: fixed;
+    margin: 50px 0;
+    padding: 10px 30px;
+    background-color: #282c34;
+  }
+
   .search-container {
     position: fixed;
     margin: 50px;

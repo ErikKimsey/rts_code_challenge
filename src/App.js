@@ -70,6 +70,7 @@ class App extends Component {
 					</form>
 					<QueryList list={this.state.queries} />
 				</div>
+        <div className="query-results">Query Results:</div>
 				<ItemList items={this.state.result} />
 			</div>
 		);
