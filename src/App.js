@@ -19,6 +19,7 @@ class App extends Component {
 	}
 
 	componentDidMount() {
+		console.log(this.props);
 		this.callAPI('javascript&tags=story');
 	}
 
@@ -34,8 +35,8 @@ class App extends Component {
 			.get(HN_URL + params)
 			.then((res) => {
 				this.setState({ result: res.data.hits });
-				addQuery(params);
-				fetchQueries();
+				this.props.addQuery(params);
+				this.props.queries();
 			})
 			.catch((err) => {
 				console.log(err);
@@ -83,7 +84,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		addQuery: (text) => dispatch(addQuery(text))
+		addQuery: addQuery(text)
 	};
 };
 

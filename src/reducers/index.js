@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import queries from './queries';
-console.log(queries);
+import queryReducer from './queries';
+console.log(queryReducer);
 
 export default combineReducers({
-	queries
+	queries: queryReducer
 });

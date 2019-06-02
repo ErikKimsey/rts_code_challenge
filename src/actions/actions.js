@@ -1,18 +1,19 @@
 import { ADD_QUERY, FETCH_QUERIES } from './actionTypes';
 
 let nextQuery = 0;
-export const addQuery = (text) => {
-	console.log(text);
 
-	return {
+export const addQuery = (query) => (dispatch) => {
+	console.log(query);
+
+	dispatch({
 		type: ADD_QUERY,
 		id: nextQuery++,
-		text
-	};
+		payload: query
+	});
 };
 
-export const fetchQueries = () => {
-	return {
-		type: FETCH_QUERIES
-	};
+export const fetchQueries = () => (dispatch) => {
+	dispatch({
+    type: FETCH_QUERIES,
+	});
 };
