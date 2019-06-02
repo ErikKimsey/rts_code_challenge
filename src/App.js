@@ -55,7 +55,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App-header">
-				<div className="rts-code-challenge">RTS Code Challenge</div>
+				<div className="rts-code-challenge">RTS Labs HackerNews</div>
 				<div className="search-container">
 					<form onSubmit={this.handleSubmit}>
 						<label>
