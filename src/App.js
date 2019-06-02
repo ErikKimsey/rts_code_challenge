@@ -7,7 +7,7 @@ import './App.scss';
 import ItemList from './components/ItemList';
 import QueryList from './components/QueryList';
 
-const HN_URL = 'http://hn.algolia.com/api/v1/search?query=';
+const HN_URL = 'https://hn.algolia.com/api/v1/search?query=';
 
 class App extends Component {
 	constructor(props) {
