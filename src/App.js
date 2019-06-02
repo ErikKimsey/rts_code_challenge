@@ -21,7 +21,6 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props);
 		this.callAPI('javascript&tags=story');
 	}
 
@@ -34,12 +33,9 @@ class App extends Component {
 			.then((res) => {
 				let queriesCopy = this.state.queries.slice();
 				queriesCopy.push(this.props.queries);
-				console.log(queriesCopy);
-
 				this.props.addQuery(params);
 				this.setState({ result: res.data.hits, queries: this.props.queries });
 				fetchQueries();
-				console.log(this.props.queries);
 			})
 			.catch((err) => {
 				console.log(err);
