@@ -5,6 +5,7 @@ import axios from 'axios';
 import './App.scss';
 
 import ItemList from './components/ItemList';
+import QueryList from './components/QueryList';
 
 const HN_URL = 'http://hn.algolia.com/api/v1/search?query=';
 
@@ -13,7 +14,8 @@ class App extends Component {
 		super(props);
 		this.state = {
 			query: '',
-			result: ''
+			result: '',
+			queries: []
 		};
 		this.input = React.createRef();
 	}
@@ -30,9 +32,13 @@ class App extends Component {
 		axios
 			.get(HN_URL + params)
 			.then((res) => {
-				this.setState({ result: res.data.hits });
+				let queriesCopy = this.state.queries.slice();
+				queriesCopy.push(this.props.queries);
+				console.log(queriesCopy);
+
 				this.props.addQuery(params);
-				this.props.fetchQueries();
+				console.log(this.props.queries);
+				this.setState({ result: res.data.hits, queries: queriesCopy });
 			})
 			.catch((err) => {
 				console.log(err);
@@ -53,6 +59,7 @@ class App extends Component {
 		return (
 			<div className="App-header">
 				<div className="search-container">
+					<QueryList list={[ this.state.queries ]} />
 					<form onSubmit={this.handleSubmit}>
 						<label>
 							<input
@@ -74,7 +81,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		queries: fetchQueries(state.queries)
+		queries: state.queries
 	};
 };
 

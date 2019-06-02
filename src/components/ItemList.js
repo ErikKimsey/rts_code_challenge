@@ -4,7 +4,6 @@ import './styles/item_list.scss';
 import Item from './Item';
 
 export default function ItemList(props) {
-	console.log(props.items);
 	let items = props.items;
 	return (
 		<div className="item-list-container">

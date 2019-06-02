@@ -11,7 +11,6 @@ const initialState = {
 const queryReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_QUERY:
-			console.log(state);
 			return {
 				...state,
 				queries: [
