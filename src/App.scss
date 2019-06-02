@@ -42,6 +42,13 @@ $backgroundColor: #282c34;
     .me {
       text-align: center;
       font-weight: 100;
+      a {
+        text-decoration: none;
+        color:white;
+        &:hover {
+          color:orange;
+        }
+      }
     }
 
     form {

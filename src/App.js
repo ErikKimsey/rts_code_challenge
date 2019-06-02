@@ -71,7 +71,12 @@ class App extends Component {
 						<input type="submit" value="Submit" />
 					</form>
 					<QueryList list={this.state.queries} />
-					<div className="me">ERIK KIMSEY</div>
+					<div className="me">
+						ERIK KIMSEY <br />
+						<a href="http://erikkimsey.com" target="_blank">
+							erikkimsey.com
+						</a>
+					</div>
 				</div>
 				<div className="query-results">Query Results:</div>
 				<ItemList items={this.state.result} />
