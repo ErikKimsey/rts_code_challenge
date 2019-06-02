@@ -1,11 +1,16 @@
 
 
 .query-list-container {
-  margin: 20px auto;
+  margin: 30px auto;
+  background-color: #111111;
+  height: 400px;
+  width: 250px;
+  overflow: scroll;
   .queries-header {
-
+    padding: 10px;
   }
-      .query {
-        font-size: 0.7em;
-      }
+  .query {
+    font-size: 0.7em;
+    margin: 5px;
+  }
 }

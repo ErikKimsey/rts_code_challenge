@@ -5,9 +5,11 @@ export default function QueryList(props) {
 	return (
 		<div className="query-list-container">
 			<div className="queries-header">Queries Made:</div>
-			{props.list.map((e) => {
-				return <div className="query">"{e.text}"</div>;
-			})}
+			<ul>
+				{props.list.map((e) => {
+					return <li className="query">"{e.text}"</li>;
+				})}
+			</ul>
 		</div>
 	);
 }
