@@ -56,7 +56,6 @@ class App extends Component {
 		return (
 			<div className="App-header">
 				<div className="search-container">
-					<QueryList list={this.state.queries} />
 					<form onSubmit={this.handleSubmit}>
 						<label>
 							<input
@@ -69,6 +68,7 @@ class App extends Component {
 						</label>
 						<input type="submit" value="Submit" />
 					</form>
+					<QueryList list={this.state.queries} />
 				</div>
 				<ItemList items={this.state.result} />
 			</div>
