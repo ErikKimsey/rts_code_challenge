@@ -24,7 +24,7 @@ function aboveBelow(arr, input) {
 
 	return `Above: ${arrCopy.length - index - 1}, Below: ${index}`;
 }
-console.log(aboveBelow([ 1, 5, 2, 1, 10 ], 6));
+// console.log(aboveBelow([ 1, 5, 2, 1, 10 ], 6));
 
 /**
  * 
