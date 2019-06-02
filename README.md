@@ -12,5 +12,5 @@
 
 
 
-#### Part 2 : Code Exercises
-I've put the answers to the code exercises in the `src` folder, here, as `rts_labs_code_exercises.js`.  
+#### Part 2 : Coding Exercises
+I've put the answers to the _3 code exercises_ in a file, above, labeled as `rts_labs_code_exercises.js`.  
