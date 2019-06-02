@@ -6,7 +6,8 @@ export default function QueryList(props) {
 		<div className="query-list-container">
 			<div className="queries-header">Queries Made:</div>
 			<ul>
-				{props.list.map((e) => {
+				{props.list.map((e, i) => {
+					if (i === 0) return;
 					return <li className="query">"{e.text}"</li>;
 				})}
 			</ul>
