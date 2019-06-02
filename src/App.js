@@ -64,13 +64,14 @@ class App extends Component {
 								value={this.state.value}
 								name="input"
 								onChange={this.handleChange}
+								placeholder="Search HN"
 							/>
 						</label>
 						<input type="submit" value="Submit" />
 					</form>
 					<QueryList list={this.state.queries} />
 				</div>
-        <div className="query-results">Query Results:</div>
+				<div className="query-results">Query Results:</div>
 				<ItemList items={this.state.result} />
 			</div>
 		);
