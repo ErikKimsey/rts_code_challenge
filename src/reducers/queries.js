@@ -14,14 +14,16 @@ const queryReducer = (state = initialState, action) => {
 			console.log(state);
 			return {
 				...state,
-				query: {
-					id: action.id,
-					text: action.text
-				}
+				queries: [
+					...state.queries,
+					{
+						id: action.id,
+						text: action.payload
+					}
+				]
 			};
 		case FETCH_QUERIES:
 			console.log(state);
-
 			return state;
 		default:
 			return state;

@@ -10,10 +10,7 @@ export default function ItemList(props) {
 		<div className="item-list-container">
 			{items &&
 				items.map((e) => {
-					return <Item data={e} />;
-					{
-						/* return <div className="item">{e.title}</div>; */
-					}
+					return <Item data={e} key={e.title} />;
 				})}
 		</div>
 	);

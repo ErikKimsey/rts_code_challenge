@@ -23,10 +23,6 @@ class App extends Component {
 		this.callAPI('javascript&tags=story');
 	}
 
-	fetchQueries = (state) => {
-		console.log(state);
-	};
-
 	callAPI = (params) => {
 		if (!params) {
 			params = 'javascript&tags=story';
@@ -36,7 +32,7 @@ class App extends Component {
 			.then((res) => {
 				this.setState({ result: res.data.hits });
 				this.props.addQuery(params);
-				this.props.queries();
+				this.props.fetchQueries();
 			})
 			.catch((err) => {
 				console.log(err);
@@ -82,11 +78,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		addQuery: addQuery(text)
-	};
-};
-
-// export default connect(mapStateToProps, mapDispatchToProps, { addQuery, fetchQueries })(App);
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, { addQuery, fetchQueries })(App);
