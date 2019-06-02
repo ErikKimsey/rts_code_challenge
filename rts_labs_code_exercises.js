@@ -14,21 +14,17 @@
  */
 function aboveBelow(arr, input) {
 	let arrCopy = arr.slice(),
-		index,
-		above,
-		below;
+		index;
 	arrCopy.push(input);
 	arrCopy = arrCopy.sort((a, b) => {
 		return a > b;
 	});
 
 	index = arrCopy.indexOf(input);
-	below = index;
-	above = arrCopy.length - index - 1;
 
-	return `Above: ${above}, Below: ${below}`;
+	return `Above: ${arrCopy.length - index - 1}, Below: ${index}`;
 }
-// console.log(aboveBelow([ 1, 5, 2, 1, 10 ], 6));
+console.log(aboveBelow([ 1, 5, 2, 1, 10 ], 6));
 
 /**
  * 
