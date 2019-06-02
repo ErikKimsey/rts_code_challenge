@@ -6,9 +6,11 @@ export const addQuery = (query) => (dispatch) => {
 	console.log(query);
 
 	dispatch({
-		type: ADD_QUERY,
-		id: nextQuery++,
-		payload: query
+    type: ADD_QUERY,
+    payload: {
+      id: nextQuery++,
+      text: query
+    }
 	});
 };
 

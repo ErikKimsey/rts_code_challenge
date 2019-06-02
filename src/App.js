@@ -37,8 +37,9 @@ class App extends Component {
 				console.log(queriesCopy);
 
 				this.props.addQuery(params);
+				this.setState({ result: res.data.hits, queries: this.props.queries });
+				fetchQueries();
 				console.log(this.props.queries);
-				this.setState({ result: res.data.hits, queries: queriesCopy });
 			})
 			.catch((err) => {
 				console.log(err);
@@ -59,7 +60,7 @@ class App extends Component {
 		return (
 			<div className="App-header">
 				<div className="search-container">
-					<QueryList list={[ this.state.queries ]} />
+					<QueryList list={this.state.queries} />
 					<form onSubmit={this.handleSubmit}>
 						<label>
 							<input

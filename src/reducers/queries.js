@@ -1,26 +1,11 @@
 import { ADD_QUERY, FETCH_QUERIES } from '../actions/actionTypes';
 
-const initialState = {
-	queries: [],
-	query: {
-		id: null,
-		text: null
-	}
-};
-
-const queryReducer = (state = initialState, action) => {
+const queryReducer = (state = [], action) => {
 	switch (action.type) {
 		case ADD_QUERY:
-			return {
-				...state,
-				queries: [
-					...state.queries,
-					{
-						id: action.id,
-						text: action.payload
-					}
-				]
-			};
+			console.log(action);
+
+			return [ ...state, action.payload ];
 		case FETCH_QUERIES:
 			console.log(state);
 			return state;
