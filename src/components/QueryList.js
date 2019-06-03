@@ -8,7 +8,11 @@ export default function QueryList(props) {
 			<ul>
 				{props.list.map((e, i) => {
 					if (i === 0) return;
-					return <li className="query">"{e.text}"</li>;
+					return (
+						<li key={e.id} className="query">
+							"{e.text}"
+						</li>
+					);
 				})}
 			</ul>
 		</div>

@@ -32,9 +32,11 @@ class App extends Component {
 			.get(HN_URL + params)
 			.then((res) => {
 				let queriesCopy = this.state.queries.slice();
+
 				queriesCopy.push(this.props.queries);
 				this.props.addQuery(params);
 				this.setState({ result: res.data.hits, queries: this.props.queries });
+				console.log(this.props.queries);
 				fetchQueries();
 			})
 			.catch((err) => {
