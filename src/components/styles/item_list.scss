@@ -5,20 +5,31 @@ $linkColor: #aaaaaa;
   display: flex;
   flex-flow: column;
   justify-items: center;
-  margin: 150px auto;
+  margin: 122px auto;
   padding:10px;
   z-index: 10;
+  color:#feffdb;
   background-color: rgba(0,0,0,0.1);
   .item {
     padding: 10px;
     font-size: 0.7em;
+    .title {
+      font-size: 1.1em;
+    }
     a{
       width: 600px;
       text-decoration: none;
-      color:$linkColor;
+      color: #79bcd6;
+      margin: 1px 12px;
       &:hover {
-        color: lighten( $linkColor, $amount: 20%);
+        color: lighten( #22aaaa, $amount: 20%);
       }
+    }
+    .date {
+      font-weight: 100;
+      color:$linkColor;
+      font-size: 0.7em;
+      margin: 1px 12px;
     }
   }
 }
