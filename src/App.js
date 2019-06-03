@@ -52,7 +52,8 @@ class App extends Component {
 	};
 
 	handleChange = (e) => {
-		this.setState({ query: e.target.value });
+		console.log(e.target.name);
+		this.setState({ [e.target.name]: e.target.value });
 	};
 
 	render() {
@@ -66,7 +67,7 @@ class App extends Component {
 								type="text"
 								ref={this.input}
 								value={this.state.value}
-								name="input"
+								name="query"
 								onChange={this.handleChange}
 								placeholder="Search HN"
 							/>
