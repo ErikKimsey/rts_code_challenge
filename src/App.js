@@ -80,7 +80,7 @@ class App extends Component {
 						</a>
 					</div>
 				</div>
-				<div className="query-results">Query Results:</div>
+				<div className="query-results">Search Results:</div>
 				<ItemList items={this.state.result} />
 			</div>
 		);

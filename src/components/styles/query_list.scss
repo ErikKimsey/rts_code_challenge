@@ -6,11 +6,13 @@
   height: 400px;
   width: 250px;
   overflow: scroll;
+  text-align: center;
   .queries-header {
     padding: 10px;
   }
   .query {
     font-size: 0.7em;
     margin: 5px;
+    text-align: start;
   }
 }
