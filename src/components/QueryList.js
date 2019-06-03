@@ -11,7 +11,7 @@ export default function QueryList(props) {
 				{props.list.map((e, i) => {
 					if (i === 0) return;
 					return (
-						<li key={e.id} className="query">
+						<li key={i} className="query">
 							"{e.text}"
 						</li>
 					);

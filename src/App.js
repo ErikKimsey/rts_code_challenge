@@ -14,29 +14,30 @@ class App extends Component {
 		super(props);
 		this.state = {
 			query: '',
-			result: '',
+			result: [],
 			queries: []
 		};
 		this.input = React.createRef();
 	}
 
 	componentDidMount() {
-		this.callAPI('javascript&tags=story');
+		this.callAPI('javascript');
 	}
 
 	callAPI = (params) => {
 		if (!params) {
-			params = 'javascript&tags=story';
+			params = 'javascript';
 		}
 		axios
-			.get(HN_URL + params)
+			.get(HN_URL + params + '&tags=story')
 			.then((res) => {
-				let queriesCopy = this.state.queries.slice();
+				this.setState({ result: [] });
 
+				let queriesCopy = this.state.queries.slice();
 				queriesCopy.push(this.props.queries);
+
 				this.props.addQuery(params);
 				this.setState({ result: res.data.hits, queries: this.props.queries });
-				console.log(this.props.queries);
 				fetchQueries();
 			})
 			.catch((err) => {
