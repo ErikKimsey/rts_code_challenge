@@ -5,14 +5,16 @@ $linkColor: #aaaaaa;
   display: flex;
   flex-flow: column;
   justify-items: center;
-  margin: 122px auto;
+  margin: 22px auto;
   padding:10px;
   z-index: 10;
   color:#feffdb;
   background-color: rgba(0,0,0,0.1);
+  transform: scale(0.9);
   .item {
     padding: 10px;
     font-size: 0.7em;
+    transition: all 500ms;
     .title {
       font-size: 1.1em;
     }
@@ -31,5 +33,12 @@ $linkColor: #aaaaaa;
       font-size: 0.7em;
       margin: 1px 12px;
     }
+
   }
 }
+    .item:hover {
+      transform: scale(1.05);
+      background-color: rgba(0,0,0,0.4);
+    }
+
+
